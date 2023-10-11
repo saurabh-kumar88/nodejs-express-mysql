@@ -4,7 +4,8 @@
   "description": "Demo rest api app with Node.js, express.js, & mysql.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
