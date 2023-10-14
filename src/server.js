@@ -26,6 +26,7 @@ app.post("/createUser", function(req, res){
 
 // set port, listen for incoming requests
 const PORT = process.env.PORT || 8081
+require("../routes/tutorials.routes.js")(app);
 app.listen(PORT, () => {
     console.log(`Node.js server is running at - ${PORT}`)
 })
