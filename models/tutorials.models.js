@@ -41,3 +41,5 @@ Tutorial.create = (newTutorial, result) => {
 // Tutorial.updateById
 // Tutorial.remove
 // Tutorial)removeAll
+
+module.exports = Tutorial

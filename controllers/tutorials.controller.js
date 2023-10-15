@@ -1,14 +1,7 @@
 const Tutorial = require("../models/tutorials.models")
 
-exports.health = (req, res) => {
-    if(!req.body){
-        res.status(500).send({
-            message: `Invalid request! : ${req.body}`
-        })
-    }
-    res.status(200).send({
-        message: "all is good!"
-    })
+exports.health = async (req, res, next) => {
+    await res.send({message: "All is in good health!"})
 }
 
 exports.create = (req, res) => {

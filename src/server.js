@@ -1,5 +1,6 @@
 const express = require("express")
 const cors = require("cors")
+const tutorialRoutes = require("../routes/tutorials.routes")
 
 const app = express()
 
@@ -11,7 +12,6 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(express.json()) //parse request with content-type - application/json
 //app.use(express.urlencoded({ extended: true })) // parse request with content-type - application/x-www-from-urlencoded
-
 // urls
 
 app.get("/", function(req, res){
@@ -24,12 +24,12 @@ app.post("/createUser", function(req, res){
     res.send("New user has been created!")
 })
 
+
 // set port, listen for incoming requests
 const PORT = process.env.PORT || 8081
-require("../routes/tutorials.routes.js")(app);
 app.listen(PORT, () => {
     console.log(`Node.js server is running at - ${PORT}`)
 })
 
-
+app.use("/", tutorialRoutes)
 
