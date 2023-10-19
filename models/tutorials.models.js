@@ -35,10 +35,70 @@ Tutorial.create = (newTutorial, result) => {
 }
 
 
-// Tutorial.findById
 // Tutorial.getAll
+Tutorial.findAll = (title, result) => {
+    let query = "SELECT * from tutorials";
+
+    if(title){
+        query.replace(";", "")
+        query += ` WHERE title LIKE '%${title}%';`
+    }
+    sql.query(query, (err, res) => {
+        if(err){
+         console.log(err.message)
+         result(err, null)
+         return;   
+        }
+        console.log(`tutorials : ${res}`)
+        result(null, res)
+    })
+}
+// Tutorial.findById
+Tutorial.findOne = (id, result) =>{
+    let query = `SELECT * FROM tutorials WHERE id='${id}';`
+
+    sql.query(query, (err, res) => {
+        if(err){
+            console.log(err.message)
+            result(err, null)
+            return;   
+           }
+           console.log(`tutorials : ${res}`)
+           result(null, res)
+        })
+}
 // Tutorial.getAllPublished
+Tutorial.Published = result => {
+    let query = "SELECT * from tutorials WHERE published='true'"
+    sql.query(query, (err, data) => {
+        if(err){
+            console.log(err.message)
+            result(err, null)
+            return;   
+           }
+           console.log(`tutorials : ${data}`)
+           result(null, data)
+        })
+}
 // Tutorial.updateById
+Tutorial.updateById = (id, tutorial, result) =>{
+    sql.query(`UPDATE tutorials SET title = ?, description = ?, published = ? WHERE id=${id}`, 
+    [tutorial.title, tutorial.description, tutorial.published]),
+    (err, data) => {
+        if(err){
+            console.log(err.message)
+            result(err, null)
+            return;   
+           }
+           if(data.affectedRows == 0)
+           {
+            result({kind: "not_found!"}, null)
+            return;
+           }
+           console.log(`tutorials : ${data}`)
+           result(null, data)
+        }
+    }
 // Tutorial.remove
 // Tutorial)removeAll
 

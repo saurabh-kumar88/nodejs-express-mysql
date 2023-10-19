@@ -26,7 +26,63 @@ exports.create = (req, res) => {
         else res.status(200).send({
             message: `Success : ${data}`
         })
-
     })
-
 }
+
+exports.findAll = (req, res) => {
+    const title = req.body.title
+    Tutorial.findAll(title, (err, data) => {
+        if(err){
+            res.status(500).send({
+                message: err.message || "request cannot be completed due to conflict with current state!"
+            })   
+        }
+        else res.send(data)
+    })    
+}
+
+exports.findAllPublished = (req, res) => {
+    Tutorial.Published((err, data) => {
+        if(err){
+            res.status(500).send({
+                message: err.message || "request cannot be completed due to conflict with current state!"
+            })   
+        }
+        else res.send(data)
+    })    
+}
+
+exports.findOne = (req, res) => {
+    const id = req.params.id
+    Tutorial.findOne(id, (err, data) => {
+        if(err){
+            res.status(500).send({
+                message: err.message || "request cannot be completed due to conflict with current state!"
+            })   
+        }
+        else res.send(data)
+    })   
+}
+
+exports.updateOne = (req, res) => {
+    const id = req.body.id
+    const tutorial = req.body.tutorial
+
+    console.log("____ id , tutorial", id, tutorial)
+
+    Tutorial.updateById(id, tutorial, (err, data) => {if(err){
+        res.status(500).send({
+            message: err.message || "request cannot be completed due to conflict with current state!"
+        })   
+    }
+    else res.send(data)})
+}
+
+// exports.deleteOne = (req, res) => {
+    
+// }
+
+// exports.deleteAll = (req, res) => {
+    
+// }
+
