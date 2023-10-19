@@ -13,7 +13,7 @@ const Tutorial = function(tutorial){
 Tutorial.create = (newTutorial, result) => {
     sql.query("INSERT INTO tutorials SET?", newTutorial, (err, res) => {
         if(err){
-            console.log(err)
+            console.log(err.message)
             result(err, null)
             return;
         }

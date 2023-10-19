@@ -14,7 +14,7 @@ exports.create = (req, res) => {
     const tutorial = new Tutorial({
         title: req.body.title,
         description: req.body.description,
-        published: req.body.description || false
+        published: req.body.published || false
     });
 
     Tutorial.create(tutorial, (err, data) => {
@@ -23,7 +23,7 @@ exports.create = (req, res) => {
                 message: "request cannot be completed due to conflict with current state!"
             })   
         }
-        else res.statue(200).send({
+        else res.status(200).send({
             message: `Success : ${data}`
         })
 
