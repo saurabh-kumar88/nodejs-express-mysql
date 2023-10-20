@@ -8,7 +8,7 @@ router.get("/", tutorials.findAll)
 router.get("/published", tutorials.findAllPublished)
 //router.get("/:id", tutorials.findOne)
 router.put("/:id", tutorials.updateOne)
-// router.delete("/:id", tutorials.deleteOne)
-// router.delete("/", tutorials.deleteAll)
+router.delete("/:id", tutorials.deleteOne)
+router.delete("/", tutorials.deleteAll)
 
 module.exports = router;

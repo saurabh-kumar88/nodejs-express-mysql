@@ -82,8 +82,7 @@ Tutorial.Published = result => {
 }
 // Tutorial.updateById
 Tutorial.updateById = (id, tutorial, result) =>{
-    sql.query(`UPDATE tutorials SET title = ?, description = ?, published = ? WHERE id=${id}`, 
-    [tutorial.title, tutorial.description, tutorial.published]),
+    sql.query(`UPDATE tutorials SET title=${tutorial.title}, description=${tutorial.description}, published=${tutorial.published} WHERE id=${id};`,
     (err, data) => {
         if(err){
             console.log(err.message)
@@ -98,8 +97,39 @@ Tutorial.updateById = (id, tutorial, result) =>{
            console.log(`tutorials : ${data}`)
            result(null, data)
         }
-    }
+    )}
 // Tutorial.remove
-// Tutorial)removeAll
+Tutorial.remove = (id, result) => {
+    sql.query(`DELETE FROM tutorials WHERE id=${id};`, (error, data) => {
+        if(error){
+            console.log(error.message)
+            result(error, null)
+            return;   
+           }
+           if(data.affectedRows == 0)
+           {
+            result({kind: "not_found!"}, null)
+            return;
+           }
+           console.log(`Removed : ${data}`)
+           result(null, data)
+        })
+    }
+
+// Tutorial.removeAll
+Tutorial.removeAll = (result) => {
+    sql.query("DELETE FROM tutorials;", (error, data) => {if(error){
+        console.log(error.message)
+        result(error, null)
+        return;   
+       }
+       if(data.affectedRows == 0)
+       {
+        result({kind: "not_found!"}, null)
+        return;
+       }
+       console.log(`All rows are removed : ${data}`)
+       result(null, data)})
+}
 
 module.exports = Tutorial
