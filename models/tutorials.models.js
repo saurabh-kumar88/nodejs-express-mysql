@@ -81,11 +81,12 @@ Tutorial.Published = result => {
         })
 }
 // Tutorial.updateById
+// [tutorial.title, tutorial.description, tutorial.published, id]
 Tutorial.updateById = (id, tutorial, result) =>{
-    sql.query(`UPDATE tutorials SET title=${tutorial.title}, description=${tutorial.description}, published=${tutorial.published} WHERE id=${id};`,
+    sql.query("UPDATE tutorials SET ? WHERE id = ?"[{title: tutorial.title, description: tutorial.description, published: tutorial.published}, id],
     (err, data) => {
         if(err){
-            console.log(err.message)
+            console.log(err)
             result(err, null)
             return;   
            }
