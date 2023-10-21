@@ -81,9 +81,30 @@ Tutorial.Published = result => {
         })
 }
 // Tutorial.updateById
-// [tutorial.title, tutorial.description, tutorial.published, id]
+const buildSqlUpdateQuery = (inputObject, id) => {
+    /**
+     * Build sql build query on runtime based on info which needs to be updated
+     */
+    
+    // check what keys are present
+    const sqlColumns = ['title', 'description', 'published']
+    let subQuery = ''
+    for (const key in inputObject) {
+        if (Object.hasOwnProperty.call(inputObject, key) && sqlColumns.includes(key)) {
+            if(key==='published'){
+                subQuery += `${key}=${inputObject[key]},`
+            }else{
+                subQuery += `${key}='${inputObject[key]}',`
+            }        
+        }
+    }
+    return `UPDATE FROM tutorials SET ${subQuery.slice(0, -1)} WHERE id=${id};`
+};
+
 Tutorial.updateById = (id, tutorial, result) =>{
-    sql.query("UPDATE tutorials SET ? WHERE id = ?"[{title: tutorial.title, description: tutorial.description, published: tutorial.published}, id],
+    let query = buildSqlUpdateQuery(tutorial, id)
+    console.log("**** query ", query)
+    sql.query(query,
     (err, data) => {
         if(err){
             console.log(err)
