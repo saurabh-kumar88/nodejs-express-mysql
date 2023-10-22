@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "92b242df-cba0-4082-988e-23d3a8bb3c10",
+		"name": "nodejs-mysql-crud-rest-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "12967028"
+	},
+	"item": [
+		{
+			"name": "getAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access-Control-Request-Method",
+						"value": "DELETE",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Access-Control-Request-Headers",
+						"value": "origin, x-requested-with",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-from-urlencoded",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/"
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Angella White\",\r\n    \"description\": \"Australlian anal queen!\",\r\n    \"published\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/"
+			},
+			"response": []
+		},
+		{
+			"name": "getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8081/7"
+			},
+			"response": []
+		},
+		{
+			"name": "update by Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Javaan 2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/7"
+			},
+			"response": []
+		},
+		{
+			"name": "delete by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8081/9"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAll",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8081/"
+			},
+			"response": []
+		}
+	]
+}
