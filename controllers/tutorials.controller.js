@@ -10,6 +10,9 @@ exports.create = (req, res) => {
             message: `Invalid request! : ${req.body}`
         })
     }
+    
+    // TODO: add input validation
+
 
     const tutorial = new Tutorial({
         title: req.body.title,
