@@ -1,0 +1,34 @@
+{
+  "name": "nodejs-express-mysql",
+  "version": "1.0.0",
+  "description": "Demo rest api app with Node.js, express.js, & mysql.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saurabh-kumar88/nodejs-express-mysql.git"
+  },
+  "keywords": [
+    "Node.js",
+    "express.js",
+    "mysql"
+  ],
+  "author": "Saurabh kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saurabh-kumar88/nodejs-express-mysql/issues"
+  },
+  "homepage": "https://github.com/saurabh-kumar88/nodejs-express-mysql#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
