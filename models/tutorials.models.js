@@ -98,12 +98,10 @@ const buildSqlUpdateQuery = (inputObject, id) => {
             }        
         }
     }
-    return `UPDATE FROM tutorials SET ${subQuery.slice(0, -1)} WHERE id=${id};`
+    return `UPDATE tutorials SET ${subQuery.slice(0, -1)} WHERE id=${id};`
 };
-
 Tutorial.updateById = (id, tutorial, result) =>{
     let query = buildSqlUpdateQuery(tutorial, id)
-    console.log("**** query ", query)
     sql.query(query,
     (err, data) => {
         if(err){
