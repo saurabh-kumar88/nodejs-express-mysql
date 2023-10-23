@@ -1,4 +1,4 @@
-1. Implement input validation for quests with body -> working on
-2. Add more query params like '?', 'limit', pagination etc
-3. Add better Info and error reporting messages
+1. Implement input validation for quests with body -> Completed!
+2. Add more query params like '?', 'limit', pagination etc -> working
+3. Add better Info and error reporting messages -> Completed!
 4. Implement db connections from connection pool
