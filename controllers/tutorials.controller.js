@@ -26,7 +26,7 @@ exports.create = (req, res) => {
         published: published}, (err, data) => {
         if(err){
             res.status(409).send({
-                message: "request cannot be completed due to conflict with current state!"
+                message: CONST.BD_ERROR
             })   
         }
         else res.status(200).send({
@@ -41,7 +41,7 @@ exports.findAll = (req, res) => {
     Tutorial.findAll(title, (err, data) => {
         if(err){
             res.status(500).send({
-                message: err.message || "request cannot be completed due to conflict with current state!"
+                message: err.message || CONST.BD_ERROR
             })   
         }
         else res.send(data)
@@ -53,7 +53,7 @@ exports.findAllPublished = (req, res) => {
     Tutorial.Published((err, data) => {
         if(err){
             res.status(500).send({
-                message: err.message || "request cannot be completed due to conflict with current state!"
+                message: err.message || CONST.BD_ERROR
             })   
         }
         else res.send(data)
@@ -66,7 +66,7 @@ exports.findOne = (req, res) => {
     Tutorial.findOne(id, (err, data) => {
         if(err){
             res.status(500).send({
-                message: err.message || "request cannot be completed due to conflict with current state!"
+                message: err.message || CONST.BD_ERROR
             })   
         }
         else res.send(data)
@@ -93,7 +93,7 @@ exports.updateOne = (req, res) => {
     Tutorial.updateById(id, tutorialUpdate, (error, data) => {
         if(error){
         res.status(500).send({
-            message: error.message || "request cannot be completed due to conflict with current state!"
+            message: error.message || CONST.BD_ERROR
         })   
     }
 
@@ -109,7 +109,7 @@ exports.deleteOne = (req, res) => {
  Tutorial.remove(id, (error, data) => {
     if(error){
         res.status(500).send({
-            message: error.message || "request cannot be completed due to conflict with current state!"
+            message: error.message || CONST.BD_ERROR
         })
     }else{
         res.send(data)
@@ -121,7 +121,7 @@ exports.deleteAll = (req, res) => {
      
     Tutorial.removeAll((error, data) => {if(error){
         res.status(500).send({
-            message: error.message || "request cannot be completed due to conflict with current state!"
+            message: error.message || CONST.BD_ERROR
         })
     }else{
         res.send(data)
