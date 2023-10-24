@@ -1,12 +1,8 @@
 const validator = require("./utils/generic_validator.js")
 const CONST = require("./constants.js")
+const db = require("./models/db.js")
 
-const obj = new validator()
-// console.log(obj.validateString("sasa"))
+console.log(db.connection)
 
 
-const inputString = "hello@world"
-const pattern = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/g
-const x = 12.90
-console.log(Number.isInteger(x))
 

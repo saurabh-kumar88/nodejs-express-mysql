@@ -1,4 +1,5 @@
 1. Implement input validation for quests with body -> Completed!
-2. Add more query params like '?', 'limit', pagination etc -> working
+2. Add more query params like '?', 'limit', pagination etc -> backlog
 3. Add better Info and error reporting messages -> Completed!
-4. Implement db connections from connection pool
+4. Implement db connections from connection pool -> Completed
+5. Convert methods of Tutorial class into static methods -> backlog
