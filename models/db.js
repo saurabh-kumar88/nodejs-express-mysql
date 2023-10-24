@@ -9,7 +9,7 @@ const connectionPool  = mysql.createPool({
     database: dbConfig.DB
 })
 
-connection.connect(error => {
+connectionPool.getConnection(error => {
     if(error){
         throw error
     }

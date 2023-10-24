@@ -9,7 +9,7 @@ class Tutorial {
         // TODO: add something
     }
     
-    create(newTutorial, result){
+    static create(newTutorial, result){
         sql.connectionPool.getConnection(function(error, connection){
             if(error){
                 console.error(`Unable to created connection with db, reason -> ${error}`)
@@ -27,7 +27,7 @@ class Tutorial {
         })
     }
     
-    updateById(id, tutorial, result){
+    static updateById(id, tutorial, result){
         sql.connectionPool.getConnection(function(error, connecton){
             
             if(error){
@@ -53,7 +53,7 @@ class Tutorial {
             })
         }
     
-    findAll(title, result){
+    static findAll(title, result){
         sql.connectionPool.getConnection(function(error, connection){
             if(error){
                 console.error(`Unable to created connection with db, reason -> ${error}`)
@@ -78,7 +78,7 @@ class Tutorial {
         
         }
     
-    findOne(id, result){
+    static findOne(id, result){
         sql.connectionPool.getConnection(function(error, connection){
             if(error){
                 console.error(`Unable to created connection with db, reason -> ${error}`)
@@ -98,7 +98,7 @@ class Tutorial {
             })
         }
 
-    Published(result){
+    static Published(result){
         sql.connectionPool.getConnection(function(error, connection){
             if(error){
                 console.error(`Unable to created connection with db, reason -> ${error}`)
@@ -118,7 +118,7 @@ class Tutorial {
             
     }
 
-    remove(id, result){
+    static remove(id, result){
         sql.connectionPool.getConnection(function(error, connection){
             if(error){
                 console.error(`Unable to created connection with db, reason -> ${error}`)
@@ -141,7 +141,7 @@ class Tutorial {
             })
         
         }
-    removeAll(result){
+    static removeAll(result){
         sql.connectionPool.getConnection(function(error, connection){
             if(error){
                 console.error(`Unable to created connection with db, reason -> ${error}`)

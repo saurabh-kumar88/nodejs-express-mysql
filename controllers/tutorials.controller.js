@@ -20,9 +20,7 @@ exports.create = (req, res) => {
         'description', 10, 500, CONST.VALID_DESCRIPTION_PATTERN)
     const published = validate.validateBool(req.body.published, 'published')
 
-    const tutorial = new Tutorial();
-
-    tutorial.create({
+    Tutorial.create({
         title: title,
         description: description,
         published: published}, (err, data) => {
@@ -38,10 +36,9 @@ exports.create = (req, res) => {
 }
 
 exports.findAll = (req, res) => {
-    const tutorial = new Tutorial()
     const title = req.body.title
 
-    tutorial.findAll(title, (err, data) => {
+    Tutorial.findAll(title, (err, data) => {
         if(err){
             res.status(500).send({
                 message: err.message || "request cannot be completed due to conflict with current state!"
@@ -52,9 +49,8 @@ exports.findAll = (req, res) => {
 }
 
 exports.findAllPublished = (req, res) => {
-    const tutorial = new Tutorial()
 
-    tutorial.Published((err, data) => {
+    Tutorial.Published((err, data) => {
         if(err){
             res.status(500).send({
                 message: err.message || "request cannot be completed due to conflict with current state!"
@@ -65,10 +61,9 @@ exports.findAllPublished = (req, res) => {
 }
 
 exports.findOne = (req, res) => {
-    const tutorial = new Tutorial()
     const id = req.params.id
 
-    tutorial.findOne(id, (err, data) => {
+    Tutorial.findOne(id, (err, data) => {
         if(err){
             res.status(500).send({
                 message: err.message || "request cannot be completed due to conflict with current state!"
@@ -82,7 +77,6 @@ exports.updateOne = (req, res) => {
     const id = req.params.id
     const tutorialUpdate = {}
     const validate = new validator()
-    const tutorial = new Tutorial()
     
     if(req.body.title){
         tutorialUpdate.title = validate.validateString(req.body.title, 
@@ -96,7 +90,7 @@ exports.updateOne = (req, res) => {
         tutorialUpdate.published = validate.validateBool(req.body.published, 'published')
     }
    
-    tutorial.updateById(id, tutorialUpdate, (error, data) => {
+    Tutorial.updateById(id, tutorialUpdate, (error, data) => {
         if(error){
         res.status(500).send({
             message: error.message || "request cannot be completed due to conflict with current state!"
@@ -111,9 +105,8 @@ exports.updateOne = (req, res) => {
 
 exports.deleteOne = (req, res) => {
  const id = req.params.id
- const tutorial = new Tutorial()
 
- tutorial.remove(id, (error, data) => {
+ Tutorial.remove(id, (error, data) => {
     if(error){
         res.status(500).send({
             message: error.message || "request cannot be completed due to conflict with current state!"
@@ -125,9 +118,8 @@ exports.deleteOne = (req, res) => {
 }
 
 exports.deleteAll = (req, res) => {
-    const tutorial = new Tutorial()
      
-    tutorial.removeAll((error, data) => {if(error){
+    Tutorial.removeAll((error, data) => {if(error){
         res.status(500).send({
             message: error.message || "request cannot be completed due to conflict with current state!"
         })
