@@ -38,3 +38,10 @@ console.log(buildSqlUpdateQuery(tutorial, 3))
 
 let query = `UPDATE tutorials SET title='${tutorial.title}', description='${tutorial.description}', published=${tutorial.published} WHERE id=${id};`
 
+/*
+
+git config --global user.email "ykings.saurabh@gmail.com"
+git config --global user.name "saurabh"
+/
+
+
