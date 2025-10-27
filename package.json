@@ -29,6 +29,7 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "cross-env": "^10.1.0",
+    "nodemon": "^3.1.10"
   }
 }
