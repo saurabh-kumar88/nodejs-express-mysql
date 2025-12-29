@@ -7,7 +7,7 @@ const tutorialRoutes = require("../routes/tutorials.routes")
 const app = express()
 
 const corsOptions = {
-    origin: "http://localhost:8081"
+    origin: "http://localhost:8082"
 }
 
 // define all middle-wares here
